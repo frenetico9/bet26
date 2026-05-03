@@ -1,0 +1,16 @@
+# Top‑level requirements for the FastAPI backend
+#
+# Vercel reads this file to install Python dependencies for serverless
+# functions. These packages mirror those defined in ``backend/requirements.txt``
+# and include FastAPI itself, the ASGI server (uvicorn) and data science
+# libraries used by the prediction module.  If you add new dependencies to
+# ``backend/requirements.txt``, reflect them here to ensure the deployment
+# succeeds.
+
+fastapi
+uvicorn
+pydantic
+requests
+pandas
+numpy
+scikit-learn

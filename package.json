@@ -1,0 +1,12 @@
+{
+  "name": "football-system-github-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full stack Football Multi‑Bet system ready for deployment on GitHub and Vercel",
+  "scripts": {
+    "build": "cd frontend && npm install --omit=dev && npm run build && rm -rf ../public && mkdir -p ../public && cp -r dist/* ../public/",
+    "start": "cd frontend && npm start"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

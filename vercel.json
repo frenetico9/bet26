@@ -1,13 +1,20 @@
 {
-    "experimentalServices": {
-        "frontend": {
-            "entrypoint": "frontend",
-            "routePrefix": "/",
-            "framework": "parcel"
-        },
-        "backend": {
-            "entrypoint": "backend",
-            "routePrefix": "/_/backend"
-        }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  // The build command runs the React build inside the `frontend` folder and
+  // copies the compiled assets into the `public` directory.  Vercel serves
+  // files from this directory automatically.
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
+  // Configure Python functions.  Any `.py` file in the `api` directory that
+  // exposes a FastAPI `app` instance becomes a serverless function.  Set
+  // sensible defaults for memory and execution time, and exclude test files
+  // from the deployed bundle to stay within Vercel's size limits【46991525502543†L120-L147】.
+  "functions": {
+    "api/**/*.py": {
+      "maxDuration": 10,
+      "memory": 1024,
+      "excludeFiles": "{tests/**,__tests__/**,**/*.test.py,**/test_*.py,fixtures/**,__fixtures__/**,testdata/**}"
     }
+  }
 }
